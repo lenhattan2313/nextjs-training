@@ -1,0 +1,36 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "name": "Article 1",
+      "description": "Detail 1",
+      "category": "sport"
+    },
+    {
+      "id": 2,
+      "name": "Article 2",
+      "description": "Detail 2",
+      "category": "blog"
+    },
+    {
+      "id": 3,
+      "name": "Article 3",
+      "description": "Detail 3",
+      "category": "sport"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "price": "1000",
+      "description": "Detail 1"
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "price": "3000",
+      "description": "Detail 2"
+    }
+  ]
+}
