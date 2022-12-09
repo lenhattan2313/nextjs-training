@@ -1,5 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import React from "react";
 
@@ -11,7 +13,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
   return {
     paths: paths.slice(0, 3),
-    fallback: false,
+    fallback: true,
   };
 };
 type IParams = ParsedUrlQuery & {
@@ -30,9 +32,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 const DetailUser = ({ user }: { user: any }) => {
-  console.log({ user });
+  const router = useRouter();
+  const { id } = router.query;
   return (
     <div>
+      <Head>
+        <title>User {id}</title>
+      </Head>
       <h1>DetailUser</h1>
       <Link href="/user">Back to Users</Link>
       <p>{user.name}</p>

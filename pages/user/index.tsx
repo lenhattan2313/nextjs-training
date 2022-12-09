@@ -1,5 +1,7 @@
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
+import Footer from "components/Footer";
 
 export async function getStaticProps() {
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -16,6 +18,10 @@ type Props = {
 const UserPage = ({ users }: Props) => {
   return (
     <div>
+      <Head>
+        <title>User list</title>
+        <meta name="description" content="user list" />
+      </Head>
       <h1>UserPage</h1>
       <p>
         <Link href={"/"}>Back to home</Link>
@@ -30,3 +36,11 @@ const UserPage = ({ users }: Props) => {
 };
 
 export default UserPage;
+UserPage.getLayout = function PageLayout(page: React.ReactNode) {
+  return (
+    <>
+      {page}
+      <Footer />
+    </>
+  );
+};
